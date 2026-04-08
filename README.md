@@ -1,45 +1,48 @@
 # Computational Model of the Serial Position Effect
 
-A computational cognitive modeling project developed for COG260: Data, Computation, and the Mind at the University of Toronto. This project simulates the serial position effect in free recall, capturing primacy and recency effects through activation-based memory dynamics.
+A computational cognitive modeling project developed for COG260: Data, Computation, and the Mind at the University of Toronto. This project simulates the serial position effect in free recall by modeling short-term and long-term memory dynamics, including decay, rehearsal, interference, and probabilistic retrieval.
 
 ## Features
 
-* Activation-based memory representation (STM and LTM)
-* Modeling of decay, rehearsal, and interference mechanisms
-* Competitive retrieval process based on activation levels
-* Simulation of recall across multiple trials
-* Generation of serial position curves (U-shaped recall pattern)
+- Activation-based representation of memory items in STM and LTM
+- Simulation of study, interference, and recall phases
+- Modeling of decay, rehearsal, and interference mechanisms
+- Competitive and probabilistic retrieval process
+- Generation of a simulated serial position curve
+- pyClarion-based phase control for memory state transitions
 
 ## Technologies Used
 
-* Python 3
-* NumPy
-* Matplotlib
-* pyClarion (cognitive modeling framework)
-* Simulation and probabilistic modeling
+- Python 3
+- Matplotlib
+- pyClarion
+- Computational cognitive modeling
+- Simulation and probabilistic modeling
 
 ## Model Overview
 
-Memory items are represented as activation-based units rather than binary stored values.
-Activation evolves over time through decay, rehearsal, and interference.
+This project models recall as an activation-based process rather than a binary remembered or forgotten state.
 
-* Early items benefit from repeated rehearsal and consolidation into long-term memory
-* Late items retain high activation in short-term memory
-* Middle items are more susceptible to interference and decay
+During the study phase, items are presented sequentially and enter short-term memory with high activation. Activation decays over time, while rehearsal strengthens active items and supports consolidation into long-term memory. A small primacy boost is applied to earlier list positions.
 
-Recall is modeled as a competitive process where items with higher activation have a greater probability of being retrieved. Across simulations, this produces the characteristic U-shaped serial position curve observed in human memory.
+During the interference phase, short-term memory activation decays further in the absence of rehearsal.
+
+During the recall phase, items compete for retrieval based on their combined STM and LTM activation, with added stochastic noise. Retrieval continues until recall fails probabilistically, producing a serial position curve that captures primacy and recency effects.
+
+## File Structure
+
+- `serial_position_model.py`  
+  Main implementation of the pyClarion controller and memory simulation model
 
 ## How to Run
 
 1. Make sure Python 3 is installed
-2. Install required dependencies
+2. Install required dependencies, including Matplotlib
 3. Install pyClarion from the official repository:
 
-```id="code1"
-https://github.com/cmekik/pyClarion
+```bash
+git clone https://github.com/cmekik/pyClarion
 ```
-
-4. Run the project files after installing dependencies
 
 ## Note
 
